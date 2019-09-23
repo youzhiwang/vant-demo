@@ -1,29 +1,27 @@
+<style lang="scss">
+  .nav-bar-title {
+    color: #00bb2c;
+  }
+
+  .main-content {
+    padding-bottom: 112px;
+  }
+</style>
+
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <van-nav-bar fixed>
+      <template slot="title">
+        <span class="nav-bar-title">曹操彩选</span>
+      </template>
+    </van-nav-bar>
+    <div class="main-content">
+      <router-view></router-view>
     </div>
-    <router-view/>
+    <van-tabbar v-model="active" active-color="#00bb2c">
+      <van-tabbar-item icon="home-o">分类</van-tabbar-item>
+      <van-tabbar-item icon="cart-o">购物车</van-tabbar-item>
+      <van-tabbar-item icon="friends-o">我的订单</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
-
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
